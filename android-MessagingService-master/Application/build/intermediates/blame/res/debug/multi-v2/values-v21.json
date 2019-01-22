@@ -1,0 +1,66 @@
+{
+    "logs": [
+        {
+            "outputFile": "/Users/Jp/Documents/GT Junior:3rd yr/android-MessagingService-master/Application/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v21/values-v21.xml",
+            "map": [
+                {
+                    "source": "/Users/Jp/.gradle/caches/transforms-1/files-1.1/support-media-compat-27.0.2.aar/b6f3fda72caf2c53ec61ebd80cb5b135/res/values-v21/values-v21.xml",
+                    "from": {
+                        "startLines": "2,5,8,11",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "55,223,386,554",
+                        "endLines": "4,7,10,13",
+                        "endColumns": "12,12,12,12",
+                        "endOffsets": "218,381,549,716"
+                    },
+                    "to": {
+                        "startLines": "12,15,19,23",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "830,998,1287,1583",
+                        "endLines": "14,17,21,25",
+                        "endColumns": "12,12,12,12",
+                        "endOffsets": "993,1156,1450,1745"
+                    }
+                },
+                {
+                    "source": "/Users/Jp/.gradle/caches/transforms-1/files-1.1/support-compat-27.0.2.aar/5c505e0a981ade40f961018891cffdaa/res/values-v21/values-v21.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,13",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,159,223,290,354,470,596,722,850,1022",
+                        "endLines": "2,3,4,5,6,7,8,9,12,17",
+                        "endColumns": "103,63,66,63,115,125,125,127,12,12",
+                        "endOffsets": "154,218,285,349,465,591,717,845,1017,1355"
+                    },
+                    "to": {
+                        "startLines": "2,3,4,5,10,11,18,22,26,29",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,159,223,290,588,704,1161,1455,1750,1922",
+                        "endLines": "2,3,4,5,10,11,18,22,28,33",
+                        "endColumns": "103,63,66,63,115,125,125,127,12,12",
+                        "endOffsets": "154,218,285,349,699,825,1282,1578,1917,2255"
+                    }
+                },
+                {
+                    "source": "/Users/Jp/Documents/GT Junior:3rd yr/android-MessagingService-master/Application/src/main/res/values-v21/styles.xml",
+                    "from": {
+                        "startLines": "17",
+                        "startColumns": "4",
+                        "startOffsets": "663",
+                        "endLines": "20",
+                        "endColumns": "12",
+                        "endOffsets": "892"
+                    },
+                    "to": {
+                        "startLines": "6",
+                        "startColumns": "4",
+                        "startOffsets": "354",
+                        "endLines": "9",
+                        "endColumns": "12",
+                        "endOffsets": "583"
+                    }
+                }
+            ]
+        }
+    ]
+}

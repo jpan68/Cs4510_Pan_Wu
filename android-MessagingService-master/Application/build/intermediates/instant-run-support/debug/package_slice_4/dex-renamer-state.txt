@@ -1,0 +1,4 @@
+#Thu Jan 10 18:14:01 EST 2019
+base.0=/Users/Jp/Documents/GT Junior\:3rd yr/android-MessagingService-master/Application/build/intermediates/transforms/dexMerger/debug/5
+path.0=classes.dex
+renamed.0=classes.dex
