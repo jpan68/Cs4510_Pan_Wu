@@ -41,10 +41,10 @@
             android:text="@string/send_2_conversations"/>
 
         <Button
-            android:id="@+id/send_1_conversation_3_messages"
+            android:id="@+id/send_1_conversation_5_messages"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/send_1_conv_3_messages"/>
+            android:text="@string/send_1_conv_5_messages"/>
     </LinearLayout>
     <RelativeLayout
         android:layout_width="0dp"

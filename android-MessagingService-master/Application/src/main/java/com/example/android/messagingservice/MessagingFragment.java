@@ -44,7 +44,7 @@ public class MessagingFragment extends Fragment implements View.OnClickListener 
 
     private Button mSendSingleConversation;
     private Button mSendTwoConversations;
-    private Button mSendConversationWithThreeMessages;
+    private Button mSendConversationWithFiveMessages;
     private TextView mDataPortView;
     private Button mClearLogButton;
 
@@ -91,9 +91,9 @@ public class MessagingFragment extends Fragment implements View.OnClickListener 
         mSendTwoConversations = (Button) rootView.findViewById(R.id.send_2_conversations);
         mSendTwoConversations.setOnClickListener(this);
 
-        mSendConversationWithThreeMessages =
-                (Button) rootView.findViewById(R.id.send_1_conversation_3_messages);
-        mSendConversationWithThreeMessages.setOnClickListener(this);
+        mSendConversationWithFiveMessages =
+                (Button) rootView.findViewById(R.id.send_1_conversation_5_messages);
+        mSendConversationWithFiveMessages.setOnClickListener(this);
 
         mDataPortView = (TextView) rootView.findViewById(R.id.data_port);
         mDataPortView.setMovementMethod(new ScrollingMovementMethod());
@@ -112,8 +112,8 @@ public class MessagingFragment extends Fragment implements View.OnClickListener 
             sendMsg(1, 1);
         } else if (view == mSendTwoConversations) {
             sendMsg(2, 1);
-        } else if (view == mSendConversationWithThreeMessages) {
-            sendMsg(1, 3);
+        } else if (view == mSendConversationWithFiveMessages) {
+            sendMsg(1, 5);
         } else if (view == mClearLogButton) {
             MessageLogger.clear(getActivity());
             mDataPortView.setText(MessageLogger.getAllMessages(getActivity()));
@@ -165,6 +165,6 @@ public class MessagingFragment extends Fragment implements View.OnClickListener 
     private void setButtonsState(boolean enable) {
         mSendSingleConversation.setEnabled(enable);
         mSendTwoConversations.setEnabled(enable);
-        mSendConversationWithThreeMessages.setEnabled(enable);
+        mSendConversationWithFiveMessages.setEnabled(enable);
     }
 }
