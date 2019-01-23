@@ -1,0 +1,73 @@
+{
+  "project_info": {
+    "project_number": "707989530793",
+    "firebase_url": "https://messaging-service-836a8.firebaseio.com",
+    "project_id": "messaging-service-836a8",
+    "storage_bucket": "messaging-service-836a8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:707989530793:android:e4b041e50b57b484",
+        "android_client_info": {
+          "package_name": "com.example.android.messagingservice"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "707989530793-3kjf5f7jb7k03tnas5t54r2uiepcvrch.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB2lpElzTRIjNy-qAevjP1vgk7IsT0Kq5U"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:707989530793:android:f1ba1dfc0a132753",
+        "android_client_info": {
+          "package_name": "edu.gatech.messagingService"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "707989530793-3kjf5f7jb7k03tnas5t54r2uiepcvrch.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB2lpElzTRIjNy-qAevjP1vgk7IsT0Kq5U"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
