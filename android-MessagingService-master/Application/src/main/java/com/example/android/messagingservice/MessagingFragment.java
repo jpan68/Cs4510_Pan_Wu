@@ -16,6 +16,8 @@
 
 package com.example.android.messagingservice;
 
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.DatabaseReference;
 import android.app.Fragment;
 import android.content.ComponentName;
 import android.content.Context;
@@ -35,12 +37,18 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.util.Map;
+import java.util.HashMap;
+
 /**
  * The main fragment that shows the buttons and the text view containing the log.
  */
 public class MessagingFragment extends Fragment implements View.OnClickListener {
 
     private static final String TAG = MessagingFragment.class.getSimpleName();
+
+    // [START declare_database_ref]
+    private DatabaseReference mDatabase;
 
     private Button mSendSingleConversation;
     private Button mSendTwoConversations;
@@ -103,6 +111,9 @@ public class MessagingFragment extends Fragment implements View.OnClickListener 
 
         setButtonsState(false);
 
+        // [START initialize_database_ref]
+        mDatabase = FirebaseDatabase.getInstance().getReference();
+
         return rootView;
     }
 
@@ -110,14 +121,24 @@ public class MessagingFragment extends Fragment implements View.OnClickListener 
     public void onClick(View view) {
         if (view == mSendSingleConversation) {
             sendMsg(1, 1);
+            writeNewNumMsgsSent(1);
         } else if (view == mSendTwoConversations) {
             sendMsg(2, 1);
+            writeNewNumMsgsSent(1);
         } else if (view == mSendConversationWithFiveMessages) {
             sendMsg(1, 5);
+            writeNewNumMsgsSent(5);
         } else if (view == mClearLogButton) {
             MessageLogger.clear(getActivity());
             mDataPortView.setText(MessageLogger.getAllMessages(getActivity()));
         }
+    }
+
+    private void writeNewNumMsgsSent(int numMsgs) {
+        String key = mDatabase.child("num-msg-sent").push().getKey();
+        Map<String, Object> childUpdate = new HashMap<>();
+        childUpdate.put(key, numMsgs);
+        mDatabase.updateChildren(childUpdate);//try again :)
     }
 
     @Override
