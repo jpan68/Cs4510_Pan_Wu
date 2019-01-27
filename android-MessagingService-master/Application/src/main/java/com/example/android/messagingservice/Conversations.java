@@ -18,7 +18,14 @@ package com.example.android.messagingservice;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import android.util.Log;
+
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.Map;
 import java.util.concurrent.ThreadLocalRandom;
 
 /**
@@ -50,11 +57,15 @@ public class Conversations {
             "Jane Doe"
     };
 
+    private static final DatabaseReference mDatabase =
+            FirebaseDatabase.getInstance().getReference();
+
     static class Conversation {
 
         private final int conversationId;
 
         private final String participantName;
+
 
         /**
          * A given conversation can have a single or multiple messages.
@@ -103,9 +114,14 @@ public class Conversations {
                                                         int messagesPerConversation) {
         Conversation[] conversations = new Conversation[howManyConversations];
         for (int i = 0; i < howManyConversations; i++) {
+            List<String> messages = makeMessages(messagesPerConversation);
             conversations[i] = new Conversation(
                     ThreadLocalRandom.current().nextInt(),
-                    name(), makeMessages(messagesPerConversation));
+                    name(), messages);
+            String key = mDatabase.child("messages").push().getKey();
+            Map<String, Object> childUpdate = new HashMap<>();
+            childUpdate.put(key, messages);
+            mDatabase.updateChildren(childUpdate);
         }
         return conversations;
     }

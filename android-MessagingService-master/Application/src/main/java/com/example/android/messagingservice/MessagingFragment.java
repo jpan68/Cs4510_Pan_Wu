@@ -121,13 +121,13 @@ public class MessagingFragment extends Fragment implements View.OnClickListener 
     public void onClick(View view) {
         if (view == mSendSingleConversation) {
             sendMsg(1, 1);
-            writeNewNumMsgsSent(1);
+//            writeNewNumMsgsSent(1);
         } else if (view == mSendTwoConversations) {
             sendMsg(2, 1);
-            writeNewNumMsgsSent(1);
+//            writeNewNumMsgsSent(1);
         } else if (view == mSendConversationWithFiveMessages) {
             sendMsg(1, 5);
-            writeNewNumMsgsSent(5);
+//            writeNewNumMsgsSent(5);
         } else if (view == mClearLogButton) {
             MessageLogger.clear(getActivity());
             mDataPortView.setText(MessageLogger.getAllMessages(getActivity()));
@@ -138,7 +138,7 @@ public class MessagingFragment extends Fragment implements View.OnClickListener 
         String key = mDatabase.child("num-msg-sent").push().getKey();
         Map<String, Object> childUpdate = new HashMap<>();
         childUpdate.put(key, numMsgs);
-        mDatabase.updateChildren(childUpdate);//try again :)
+        mDatabase.updateChildren(childUpdate);
     }
 
     @Override

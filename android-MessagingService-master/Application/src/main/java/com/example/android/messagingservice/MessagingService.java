@@ -114,9 +114,9 @@ public class MessagingService extends Service {
         // read and reply intents.
         UnreadConversation.Builder unreadConvBuilder =
                 new UnreadConversation.Builder(conversation.getParticipantName())
-                .setLatestTimestamp(conversation.getTimestamp())
-                .setReadPendingIntent(readPendingIntent)
-                .setReplyAction(replyIntent, remoteInput);
+                        .setLatestTimestamp(conversation.getTimestamp())
+                        .setReadPendingIntent(readPendingIntent)
+                        .setReplyAction(replyIntent, remoteInput);
 
         // Note: Add messages from oldest to newest to the UnreadConversation.Builder
         StringBuilder messageForNotification = new StringBuilder();
