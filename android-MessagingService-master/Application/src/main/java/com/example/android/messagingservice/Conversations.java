@@ -121,7 +121,7 @@ public class Conversations {
             String key = mDatabase.child("messages").push().getKey();
             Map<String, Object> childUpdate = new HashMap<>();
             childUpdate.put(key, messages);
-            mDatabase.updateChildren(childUpdate);
+            mDatabase.child("messages").updateChildren(childUpdate);
         }
         return conversations;
     }
