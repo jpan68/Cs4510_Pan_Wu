@@ -15,9 +15,11 @@
  */
 
 package com.example.android.messagingservice;
-
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.ValueEventListener;
 import android.app.Fragment;
 import android.content.ComponentName;
 import android.content.Context;
@@ -53,8 +55,10 @@ public class MessagingFragment extends Fragment implements View.OnClickListener 
     private Button mSendSingleConversation;
     private Button mSendTwoConversations;
     private Button mSendConversationWithFiveMessages;
+    private Button mGetAllMessages;
     private TextView mDataPortView;
     private Button mClearLogButton;
+    
 
     private Messenger mService;
     private boolean mBound;
@@ -102,6 +106,9 @@ public class MessagingFragment extends Fragment implements View.OnClickListener 
         mSendConversationWithFiveMessages =
                 (Button) rootView.findViewById(R.id.send_1_conversation_5_messages);
         mSendConversationWithFiveMessages.setOnClickListener(this);
+        
+        mGetAllMessages = (Button) rootView.findViewById(R.id.get_all_messages_sent);
+        mGetAllMessages.setOnClickListener(this);
 
         mDataPortView = (TextView) rootView.findViewById(R.id.data_port);
         mDataPortView.setMovementMethod(new ScrollingMovementMethod());
@@ -128,7 +135,32 @@ public class MessagingFragment extends Fragment implements View.OnClickListener 
         } else if (view == mSendConversationWithFiveMessages) {
             sendMsg(1, 5);
 //            writeNewNumMsgsSent(5);
-        } else if (view == mClearLogButton) {
+        } else if (view==mGetAllMessages)
+        {
+            DatabaseReference mMessage = mDatabase.child("messages");
+            ValueEventListener valueEventListener = new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    String Text = "";
+                    for (DataSnapshot msg : dataSnapshot.getChildren()) {
+                        Text += "ID" + "  " + msg.getKey() + "\n";
+
+                        List<String> subMsgs = (List<String>) msg.getValue();
+                        for(int i = 0 ; i < subMsgs.size() ; i++){
+                            Text += "---" + i + ":" + subMsgs.get(i) + "\n";
+                        }
+                    }
+                    mDataPortView.setText(Text);
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+
+                }
+            };
+            mMessage.addListenerForSingleValueEvent(valueEventListener);
+        }
+       else if (view == mClearLogButton) {
             MessageLogger.clear(getActivity());
             mDataPortView.setText(MessageLogger.getAllMessages(getActivity()));
         }
